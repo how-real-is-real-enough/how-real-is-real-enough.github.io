@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CoRL 2026 Workshop on physical fidelity in Real2Sim for robot learning from real images and video.">
+    <meta property="og:title" content="How Real Is Real Enough? — CoRL 2026 Workshop">
+    <meta property="og:description" content="A CoRL 2026 workshop on physical fidelity, transfer prediction, and live challenge evaluation for Real2Sim robot learning.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <title>How Real Is Real Enough? — CoRL 2026 Workshop</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=1">
+</head>
+
+<body>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="container hero-content">
+            <p class="hero-venue">CoRL 2026 Workshop</p>
+            <h1 class="hero-title">How Real Is Real Enough?</h1>
+            <p class="hero-subtitle">Physical Fidelity in Real2Sim for Robot Learning</p>
+            <div class="hero-meta">
+                <span class="meta-pill">Morning half-day, 8:30–12:30</span>
+                <span class="meta-pill">Nov. 9, 2026</span>
+                <span class="meta-pill">Austin, Texas</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-bar" id="navbar" aria-label="Section navigation">
+        <div class="container nav-inner">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#questions" class="nav-link">Questions</a>
+            <a href="#speakers" class="nav-link">Speakers</a>
+            <a href="#interactivity" class="nav-link">Interactivity</a>
+            <a href="#schedule" class="nav-link">Schedule</a>
+            <a href="#cfp" class="nav-link">Call for Papers</a>
+            <a href="#organizers" class="nav-link">Organizers</a>
+        </div>
+    </nav>
+
+    <!-- About -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About</h2>
+            <div class="about-content">
+                <p>
+                    Robot learning increasingly gets its training and evaluation environments through
+                    <strong>real2sim</strong>: scenes and objects reconstructed from real images or video,
+                    very often in-the-wild human video, into assets a robot can act in. The whole
+                    approach rests on one assumption: that a world rebuilt from real observation is
+                    faithful enough for a policy trained or tested in it to still work on the real robot.
+                </p>
+                <p>
+                    In the in-the-wild setting where this would help the most, we lack a general,
+                    transfer-predictive way to tell whether that assumption holds. The strongest
+                    reconstruction models may return geometry and appearance that look right, while
+                    still lacking metric scale, separated manipulable parts, collision geometry,
+                    articulation, mass, friction, and contact behavior.
+                </p>
+                <p>
+                    This workshop brings together researchers from <strong>3D and 4D reconstruction</strong>,
+                    <strong>physics-based simulation</strong>, and <strong>robot policy learning</strong> around
+                    one concrete question: when a world is reconstructed from a real image or video and
+                    cannot be checked against ground-truth physics, what makes it trustworthy enough
+                    for a robot to act in, and can we predict real-world policy transfer before we deploy?
+                </p>
+                <p>
+                    The workshop is a working session rather than a sequence of talks. Its output will
+                    be a community position paper, a first draft of a transfer-oriented fidelity
+                    protocol, and a public benchmark and leaderboard seeded by the live demo challenge.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Questions -->
+    <section id="questions" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Core Questions</h2>
+            <p class="section-desc">
+                The workshop is organized around four research questions from the final proposal.
+            </p>
+            <div class="question-grid">
+                <div class="question-card">
+                    <h3>Q1. What is the reference, and the benchmark?</h3>
+                    <p>
+                        When a world comes from a real image or human video, a ground-truth mesh and
+                        reliable pose are both missing. Which signal can stand in for ground truth:
+                        observable surface and contact behavior, the original human demonstration, or
+                        minimal held-out or interventional robot signals?
+                    </p>
+                </div>
+                <div class="question-card">
+                    <h3>Q2. From visual reconstruction to actionable assets</h3>
+                    <p>
+                        What must a reconstruction expose before a robot can use it: scale, separated
+                        manipulable parts, collision geometry, articulation, mass, friction, and other
+                        physical parameters?
+                    </p>
+                </div>
+                <div class="question-card">
+                    <h3>Q3. Agentic and closed-loop real2sim, and who certifies the loop?</h3>
+                    <p>
+                        An agentic or closed-loop system could choose what to reconstruct, estimate
+                        physical parameters, judge when a world is good enough, and direct robot
+                        interaction. What held-out, robot-collected, or interventional signal can certify
+                        such a world?
+                    </p>
+                </div>
+                <div class="question-card">
+                    <h3>Q4. Real enough for which policy, and which task?</h3>
+                    <p>
+                        Fidelity is never absolute. Can we define a task-conditioned notion of fidelity
+                        that predicts whether a given policy will transfer, and tells us where
+                        reconstruction and simulation effort pays off?
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speakers -->
+    <section id="speakers" class="section">
+        <div class="container">
+            <h2 class="section-title">Invited Speakers</h2>
+            <p class="section-desc">
+                The workshop features four committed invited speakers spanning reconstruction,
+                simulation, and robot learning.
+            </p>
+            <div class="speakers-grid">
+                <div class="speaker-card">
+                    <img src="images/ming_lin.jpg" alt="Ming C. Lin" class="speaker-photo" loading="lazy" decoding="async">
+                    <h3><a href="https://www.cs.umd.edu/~lin/" target="_blank" rel="noopener noreferrer">Ming C. Lin</a></h3>
+                    <p class="speaker-affil">University of Maryland</p>
+                    <span class="status-badge confirmed">Committed</span>
+                </div>
+                <div class="speaker-card">
+                    <img src="images/jiajun_wu.jpeg" alt="Jiajun Wu" class="speaker-photo" loading="lazy" decoding="async">
+                    <h3><a href="https://jiajunwu.com/" target="_blank" rel="noopener noreferrer">Jiajun Wu</a></h3>
+                    <p class="speaker-affil">Stanford University</p>
+                    <span class="status-badge confirmed">Committed</span>
+                </div>
+                <div class="speaker-card">
+                    <img src="images/daniel_seita.png" alt="Daniel Seita" class="speaker-photo" loading="lazy" decoding="async">
+                    <h3><a href="https://danielseita.github.io/" target="_blank" rel="noopener noreferrer">Daniel Seita</a></h3>
+                    <p class="speaker-affil">University of Southern California</p>
+                    <span class="status-badge confirmed">Committed</span>
+                </div>
+                <div class="speaker-card">
+                    <img src="images/ying_jiang.png" alt="Ying Jiang" class="speaker-photo" loading="lazy" decoding="async">
+                    <h3><a href="https://yingjiang96.github.io/" target="_blank" rel="noopener noreferrer">Ying Jiang</a></h3>
+                    <p class="speaker-affil">NVIDIA Spatial Intelligence Lab</p>
+                    <span class="status-badge confirmed">Committed</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactivity -->
+    <section id="interactivity" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Interactivity</h2>
+            <p class="section-desc">
+                The workshop is a working session: talks set up what each field can and cannot measure,
+                while three interactive blocks turn the room's discussion into a shared fidelity rubric.
+            </p>
+            <div class="interaction-grid">
+                <div class="interaction-card" tabindex="0" aria-label="Live Demo Challenge">
+                    <div class="interaction-inner">
+                        <div class="interaction-face interaction-front">
+                            <img src="images/live_demo_challenge.png" alt="Comic illustration for live demo challenge" loading="lazy" decoding="async">
+                            <h3>Live Demo Challenge</h3>
+                        </div>
+                        <div class="interaction-face interaction-back">
+                            <h3>Live Demo Challenge</h3>
+                            <p>
+                                Four finalists run generated or reconstructed worlds through shared
+                                challenge infrastructure. Each demo shows the asset, recovered physical
+                                parameters, and a fixed robot task in simulation, paired with prerecorded
+                                real-robot footage so the room can judge whether simulated behavior
+                                predicts transfer.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="interaction-card" tabindex="0" aria-label="Rotating Roundtables">
+                    <div class="interaction-inner">
+                        <div class="interaction-face interaction-front">
+                            <img src="images/rotating_roundtables.png" alt="Comic illustration for rotating roundtables" loading="lazy" decoding="async">
+                            <h3>Rotating Roundtables</h3>
+                        </div>
+                        <div class="interaction-face interaction-back">
+                            <h3>Rotating Roundtables</h3>
+                            <p>
+                                Attendees split across four tables, each owning one research question.
+                                Invited speakers rotate between tables so every group works through its
+                                question with each speaker. Organizers record arguments, proposed metrics,
+                                failure cases, and open disagreements into a shared document for the panel.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="interaction-card" tabindex="0" aria-label="Panel Discussion">
+                    <div class="interaction-inner">
+                        <div class="interaction-face interaction-front">
+                            <img src="images/panel_discussion.png" alt="Comic illustration for panel discussion" loading="lazy" decoding="async">
+                            <h3>Panel Discussion</h3>
+                        </div>
+                        <div class="interaction-face interaction-back">
+                            <h3>Panel Discussion</h3>
+                            <p>
+                                The invited speakers and organizers take the shared roundtable document on
+                                stage and turn it into concrete open problems, a first transfer-oriented
+                                fidelity rubric, and next steps for the post-workshop position paper,
+                                public benchmark, and leaderboard seeded by the live challenge.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule -->
+    <section id="schedule" class="section">
+        <div class="container">
+            <h2 class="section-title">Schedule</h2>
+            <p class="section-desc">
+                Morning half-day workshop. All times are tentative and will follow the final CoRL
+                workshop schedule.
+            </p>
+            <div class="schedule-table">
+                <div class="schedule-row schedule-header">
+                    <span class="sched-time">Time</span>
+                    <span class="sched-event">Session</span>
+                    <span class="sched-format">Topic / Notes</span>
+                </div>
+                <div class="schedule-row">
+                    <span class="sched-time">08:30 – 08:40</span>
+                    <span class="sched-event">Opening Remarks</span>
+                    <span class="sched-format">Welcome and workshop overview</span>
+                </div>
+                <div class="schedule-row talk">
+                    <span class="sched-time">08:40 – 08:50</span>
+                    <span class="sched-event">Spotlight Talk I</span>
+                    <span class="sched-format">Selected contributed paper</span>
+                </div>
+                <div class="schedule-row talk">
+                    <span class="sched-time">08:50 – 09:00</span>
+                    <span class="sched-event">Spotlight Talk II</span>
+                    <span class="sched-format">Selected contributed paper</span>
+                </div>
+                <div class="schedule-row talk">
+                    <span class="sched-time">09:00 – 09:20</span>
+                    <span class="sched-event">Live Demo Challenge</span>
+                    <span class="sched-format">Four finalists; simulation runs shown beside prerecorded real-robot transfer</span>
+                </div>
+                <div class="schedule-row talk">
+                    <span class="sched-time">09:20 – 09:40</span>
+                    <span class="sched-event">Invited Talk I</span>
+                    <span class="sched-format">18 min talk + 2 min Q&A</span>
+                </div>
+                <div class="schedule-row talk">
+                    <span class="sched-time">09:40 – 10:00</span>
+                    <span class="sched-event">Invited Talk II</span>
+                    <span class="sched-format">18 min talk + 2 min Q&A</span>
+                </div>
+                <div class="schedule-row break">
+                    <span class="sched-time">10:00 – 10:20</span>
+                    <span class="sched-event">Poster Session and Coffee Break</span>
+                    <span class="sched-format">Posters</span>
+                </div>
+                <div class="schedule-row talk">
+                    <span class="sched-time">10:20 – 10:40</span>
+                    <span class="sched-event">Invited Talk III</span>
+                    <span class="sched-format">18 min talk + 2 min Q&A</span>
+                </div>
+                <div class="schedule-row talk">
+                    <span class="sched-time">10:40 – 11:00</span>
+                    <span class="sched-event">Invited Talk IV</span>
+                    <span class="sched-format">18 min talk + 2 min Q&A</span>
+                </div>
+                <div class="schedule-row">
+                    <span class="sched-time">11:00 – 11:40</span>
+                    <span class="sched-event">Rotating Roundtables</span>
+                    <span class="sched-format">Four Q1–Q4 tables; invited speakers rotate between rounds</span>
+                </div>
+                <div class="schedule-row break">
+                    <span class="sched-time">11:40 – 11:50</span>
+                    <span class="sched-event">Break</span>
+                    <span class="sched-format"></span>
+                </div>
+                <div class="schedule-row">
+                    <span class="sched-time">11:50 – 12:20</span>
+                    <span class="sched-event">Panel Discussion</span>
+                    <span class="sched-format">Open problems and first draft of the fidelity rubric</span>
+                </div>
+                <div class="schedule-row">
+                    <span class="sched-time">12:20 – 12:30</span>
+                    <span class="sched-event">Closing Remarks and Best-Paper Awards</span>
+                    <span class="sched-format">Artifact next steps and awards</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call for Papers -->
+    <section id="cfp" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Call for Papers</h2>
+            <div class="cfp-content">
+                <p>
+                    We invite short, non-archival papers of up to <strong>four pages</strong> excluding
+                    references. Submissions will be managed through OpenReview and reviewed double-blind
+                    in a single round without rebuttal. Papers already accepted at the CoRL 2026 main
+                    conference are not eligible. The two best accepted papers will be presented as
+                    spotlight talks, and the rest will appear as posters.
+                </p>
+                <p>
+                    The paper track runs alongside the live demo challenge, a separate track in which
+                    teams submit agentic-generation or real2sim models rather than papers.
+                </p>
+            </div>
+            <div class="cfp-content left-content">
+                <div class="cfp-topics">
+                    <h3>Topics of Interest</h3>
+                    <ul>
+                        <li>Real2Sim and digital twins for robot learning, especially from in-the-wild images and video</li>
+                        <li>Reconstruction for manipulation without ground-truth pose or a CAD model</li>
+                        <li>Physical parameter identification for deformable, fluid, granular, and articulated objects</li>
+                        <li>Agentic and closed-loop real2sim, and ways to certify an agent-built world</li>
+                        <li>Fidelity metrics that predict real-world policy transfer</li>
+                        <li>Datasets pairing reconstructed worlds with real-robot transfer outcomes</li>
+                    </ul>
+                </div>
+
+                <div class="cfp-dates">
+                    <h3>Important Dates</h3>
+                    <div class="date-row">
+                        <span class="date-label">Submission Deadline</span>
+                        <span class="date-value">TBD</span>
+                    </div>
+                    <div class="date-row">
+                        <span class="date-label">Notification</span>
+                        <span class="date-value">TBD</span>
+                    </div>
+                    <div class="date-row">
+                        <span class="date-label">Workshop Date</span>
+                        <span class="date-value">Nov. 9, 2026</span>
+                    </div>
+                    <div class="date-row">
+                        <span class="date-label">Location</span>
+                        <span class="date-value">JW Marriott Austin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organizers -->
+    <section id="organizers" class="section">
+        <div class="container">
+            <h2 class="section-title">Organizers</h2>
+            <div class="organizers-grid">
+                <div class="organizer-card">
+                    <img src="images/peihao_li.jpg" alt="Peihao Li" class="org-photo" loading="lazy" decoding="async">
+                    <h3><a href="https://peihao.li/" target="_blank" rel="noopener noreferrer">Peihao Li</a></h3>
+                    <p>UC Berkeley</p>
+                </div>
+                <div class="organizer-card">
+                    <img src="images/yanjia_huang.jpg" alt="Yanjia Huang" class="org-photo" loading="lazy" decoding="async">
+                    <h3><a href="https://huangyanjia.github.io/" target="_blank" rel="noopener noreferrer">Yanjia Huang</a></h3>
+                    <p>UCLA</p>
+                </div>
+                <div class="organizer-card">
+                    <img src="images/zhiyang_dou.png" alt="Zhiyang Dou" class="org-photo" loading="lazy" decoding="async">
+                    <h3><a href="https://frank-zy-dou.github.io/" target="_blank" rel="noopener noreferrer">Zhiyang Dou</a></h3>
+                    <p>MIT</p>
+                </div>
+                <div class="organizer-card">
+                    <img src="images/yumeng_he.jpg" alt="Yumeng He" class="org-photo" loading="lazy" decoding="async">
+                    <h3><a href="https://heyumeng.com/" target="_blank" rel="noopener noreferrer">Yumeng He</a></h3>
+                    <p>UCLA</p>
+                </div>
+                <div class="organizer-card">
+                    <img src="images/jiachen_li.jpg" alt="Jiachen Li" class="org-photo" loading="lazy" decoding="async">
+                    <h3><a href="https://jiachenli94.github.io/" target="_blank" rel="noopener noreferrer">Jiachen Li</a></h3>
+                    <p>Georgia Tech</p>
+                </div>
+                <div class="organizer-card">
+                    <img src="images/wojciech_matusik.jpg" alt="Wojciech Matusik" class="org-photo" loading="lazy" decoding="async">
+                    <h3><a href="https://cdfg.mit.edu/wojciech" target="_blank" rel="noopener noreferrer">Wojciech Matusik</a></h3>
+                    <p>MIT</p>
+                </div>
+                <div class="organizer-card">
+                    <img src="images/dinesh_manocha.jpg" alt="Dinesh Manocha" class="org-photo" loading="lazy" decoding="async">
+                    <h3><a href="https://www.cs.umd.edu/~dm/" target="_blank" rel="noopener noreferrer">Dinesh Manocha</a></h3>
+                    <p>University of Maryland</p>
+                </div>
+                <div class="organizer-card">
+                    <img src="images/yin_yang.jpg" alt="Yin Yang" class="org-photo" loading="lazy" decoding="async">
+                    <h3><a href="https://yangzzzy.github.io/" target="_blank" rel="noopener noreferrer">Yin Yang</a></h3>
+                    <p>University of Utah</p>
+                </div>
+                <div class="organizer-card">
+                    <img src="images/chenfanfu_jiang.jpg" alt="Chenfanfu Jiang" class="org-photo" loading="lazy" decoding="async">
+                    <h3><a href="https://www.math.ucla.edu/~cffjiang/" target="_blank" rel="noopener noreferrer">Chenfanfu Jiang</a></h3>
+                    <p>UCLA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>How Real Is Real Enough? — CoRL 2026 Workshop</p>
+            <p class="footer-contact">
+                See the <a href="https://www.corl.org/contributions/call-for-workshops" target="_blank" rel="noopener noreferrer">CoRL 2026 Call for Workshops</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle a shadow when the sticky nav is pinned to the top.
+        const nav = document.getElementById('navbar');
+        const sentinel = document.createElement('div');
+        sentinel.setAttribute('aria-hidden', 'true');
+        nav.parentNode.insertBefore(sentinel, nav);
+        new IntersectionObserver(([entry]) => {
+            nav.classList.toggle('stuck', !entry.isIntersecting);
+        }).observe(sentinel);
+    </script>
+
+</body>
+
+</html>
