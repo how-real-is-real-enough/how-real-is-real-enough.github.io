@@ -1,6 +1,6 @@
 # How Real Is Real Enough?
 
-Static website for the CoRL 2026 workshop proposal:
+Static website for the workshop proposal:
 
 **How Real Is Real Enough? Physical Fidelity in Real2Sim for Robot Learning**
 
