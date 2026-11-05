@@ -1,8 +1,8 @@
 # How Real Is Real Enough?
 
-Static website for the workshop proposal:
+Static website for the CVPR 2027 workshop proposal (acronym: RealEnough):
 
-**How Real Is Real Enough? Physical Fidelity in Real2Sim for Robot Learning**
+**How Real Is Real Enough? Fidelity and Utility in Real2Sim for Robot Learning**
 
 ## Acknowledgement
 
