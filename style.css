@@ -376,16 +376,13 @@ a:focus-visible,
 }
 
 .speakers-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 18px;
     margin-top: 28px;
 }
 
 .speaker-card {
-    flex: 0 0 220px;
-    width: 220px;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -709,6 +706,12 @@ a:focus-visible,
 }
 
 /* ===== Responsive ===== */
+@media (max-width: 1024px) {
+    .speakers-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
 @media (max-width: 768px) {
     .hero {
         padding: 70px 0 50px;
@@ -743,8 +746,8 @@ a:focus-visible,
         text-align: center;
     }
 
-    .speaker-card {
-        flex-basis: 160px;
+    .speakers-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .organizer-card {
